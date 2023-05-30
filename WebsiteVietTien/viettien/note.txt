@@ -1,0 +1,9 @@
+update phi ship trong don hang 
+=> update donhang set PhiShip = 15000*(SELECT COUNT(masp) from chitietdonhang WHERE donhang.MaDonHang = chitietdonhang.MaDonHang)
+
+update thanh tien trong chi tiet hon hang
+=> update chitietdonhang set ThanhTien = DonGia*SoLuongDatMua
+
+update tong tien trong don hang
+update donhang set tongtien = (select sum(ThanhTien) from chitietdonhang where donhang.MaDonHang = chitietdonhang.MaDonHang)+PhiShip
+
